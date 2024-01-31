@@ -47,5 +47,10 @@ namespace WebApplication3.ViewModels
         [Required]
         [DataType(DataType.Text)]
         public string AboutMe { get; set;}
-    }
+
+		[Required(ErrorMessage = "Photo is required")]
+		[DataType(DataType.Upload)]
+		[FileExtensions(Extensions = "jpg", ErrorMessage = "Only JPG files are allowed")]
+		public string Photo { get; set; }
+	}
 }

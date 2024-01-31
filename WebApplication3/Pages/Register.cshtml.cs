@@ -48,8 +48,8 @@ namespace WebApplication3.Pages
                     Phone = HttpUtility.HtmlEncode(RModel.Phone),
                     Address = HttpUtility.HtmlEncode(RModel.Address),
                     Email = HttpUtility.HtmlEncode(RModel.Email),
-                    
                     AboutMe = HttpUtility.HtmlEncode(RModel.AboutMe),
+                    Photo = HttpUtility.HtmlEncode(RModel.Photo)
                     
                 };
                 var result = await userManager.CreateAsync(user, RModel.Password);

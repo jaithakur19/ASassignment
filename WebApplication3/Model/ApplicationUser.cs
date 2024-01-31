@@ -26,8 +26,9 @@ namespace WebApplication3.Model
         		
 		public string AboutMe { get; set; }
 
+        public string Photo { get; set; }
 
-        public string? AuthenticationToken { get; set; }
+		public string? AuthenticationToken { get; set; }
 
 	}
 		
