@@ -1,0 +1,21 @@
+﻿@page
+@using Application_Security_Assignment.Pages;
+@model IndexModel
+
+@inject IHttpContextAccessor contxt;
+
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div>
+    <h1 class="display-4", class="text-center">Your Data</h1>
+        <ul>
+            <p>Full Name: @HttpContext.Session.GetString("FullName")</p>
+            <p>Email: @HttpContext.Session.GetString("Email")</p>
+            <p>Gender: @HttpContext.Session.GetString("SelectedGender")</p>
+            <p>Phone: @HttpContext.Session.GetString("Phone")</p>
+            <p>Credit Card: @HttpContext.Session.GetString("Credit")</p>
+            <p>Delivery Address: @HttpContext.Session.GetString("Address")</p>
+        </ul>
+</div>
