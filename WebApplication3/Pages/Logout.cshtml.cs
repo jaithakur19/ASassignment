@@ -12,6 +12,7 @@ namespace WebApplication3.Pages
 		public LogoutModel(SignInManager<ApplicationUser> signInManager, UserManager<ApplicationUser> UserManager)
 		{
 			this.signInManager = signInManager;
+			this.UserManager = UserManager;
 		}
 		public void OnGet() { 
 		}
