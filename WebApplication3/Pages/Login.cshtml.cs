@@ -15,15 +15,17 @@ namespace WebApplication3.Pages
 
 		[BindProperty]
 		public Login LModel { get; set; }
+		private readonly AuthDbContext authDbContext;
 
 		private readonly SignInManager<ApplicationUser> signInManager;
 		private readonly UserManager<ApplicationUser> UserManager;
 
-		public LoginModel(SignInManager<ApplicationUser> signInManager, UserManager<ApplicationUser> UserManager)
+		public LoginModel(SignInManager<ApplicationUser> signInManager, UserManager<ApplicationUser> UserManager, AuthDbContext authDbContext)
 		{
 			this.signInManager = signInManager;
 			this.UserManager = UserManager;
-		}
+            this.authDbContext = authDbContext;
+        }
 
 		public void OnGet()
         {

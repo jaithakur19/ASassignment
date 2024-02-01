@@ -10,11 +10,13 @@ namespace Application_Security_Assignment.Pages
     public class IndexModel : PageModel
     {
         private UserManager<ApplicationUser> userManager { get; }
+        private readonly AuthDbContext authDbContext;
         private SignInManager<ApplicationUser> signInManager { get; }
-        public IndexModel(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager)
+        public IndexModel(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, AuthDbContext authDbContext)
         {
             this.userManager = userManager;
             this.signInManager = signInManager;
+            this.authDbContext = authDbContext;
         }
         public async Task OnGet()
         {
@@ -33,6 +35,15 @@ namespace Application_Security_Assignment.Pages
 					var protector = dataProtectionProvider.CreateProtector("MySecretKey");
 
 					HttpContext.Session.SetString("Credit", protector.Unprotect(user.Credit));
+
+                    var log = new AuditLog
+                    {
+                        UserId = user.Id,
+                        Action = "Logged In",
+                        Time = DateTime.Now,
+                    };
+                    authDbContext.AuditLogTable.Add(log);
+                    authDbContext.SaveChanges();
 				}
                 else
                 {

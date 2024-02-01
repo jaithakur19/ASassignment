@@ -10,7 +10,7 @@ builder.Services.AddDbContext<AuthDbContext>();
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
 {
     // Lockout settings
-    options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5); // Lockout duration
+    options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(1); // Lockout duration
     options.Lockout.MaxFailedAccessAttempts = 3; // Max failed attempts before lockout
     options.Lockout.AllowedForNewUsers = true;
 
