@@ -7,7 +7,7 @@ namespace WebApplication3.ViewModels
 
         [Required(ErrorMessage = "Please enter your full name.")]
         [DataType(DataType.Text)]
-        [RegularExpression(@"^[A-Za-z]+$", ErrorMessage = "Only letters are allowed in the full name.")]
+        [RegularExpression(@"^[A-Za-z ]+$", ErrorMessage = "Only letters are allowed in the full name.")]
         public string FullName { get; set; }
 
         [Required(ErrorMessage = "Please enter your credit card information.")]
